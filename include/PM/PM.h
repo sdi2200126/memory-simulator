@@ -1,0 +1,1 @@
+int PM_run(int max, int shm_id);
