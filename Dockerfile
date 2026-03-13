@@ -1,10 +1,10 @@
-FROM ubuntu:latest AS builder
+FROM ubuntu:26.04 AS builder
 
-RUN apt-get update && apt-get install -y gcc make
+RUN apt-get update && apt-get install -y gcc make libc6-dev
 COPY . .
 RUN make
 
-FROM ubuntu:latest
+FROM ubuntu:26.04
 COPY --from=builder /bin ./bin
 COPY --from=builder /traces ./traces
 
